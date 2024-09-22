@@ -12,33 +12,33 @@ namespace ROYALHOTEL.Controllers
 {
     public class GalleriesController : Controller
     {
-        private readonly ModelContext _context;
+        private readonly ModelContext _context2;
         private readonly IWebHostEnvironment _webHostEnviroment;
 
    
         public GalleriesController(ModelContext context, IWebHostEnvironment webHostEnviroment)
         {
-            _context = context;
+            _context2 = context;
             _webHostEnviroment = webHostEnviroment;
         }
 
         // GET: Galleries
         public async Task<IActionResult> Index()
         {
-              return _context.Galleries != null ? 
-                          View(await _context.Galleries.ToListAsync()) :
+              return _context2.Galleries != null ? 
+                          View(await _context2.Galleries.ToListAsync()) :
                           Problem("Entity set 'ModelContext.Galleries'  is null.");
         }
 
         // GET: Galleries/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
-            if (id == null || _context.Galleries == null)
+            if (id == null || _context2.Galleries == null)
             {
                 return NotFound();
             }
 
-            var gallery = await _context.Galleries
+            var gallery = await _context2.Galleries
                 .FirstOrDefaultAsync(m => m.Galleryid == id);
             if (gallery == null)
             {
@@ -98,8 +98,8 @@ namespace ROYALHOTEL.Controllers
 
 
 
-                _context.Add(gallery);
-                await _context.SaveChangesAsync();
+                _context2.Add(gallery);
+                await _context2.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(gallery);
@@ -108,12 +108,12 @@ namespace ROYALHOTEL.Controllers
         // GET: Galleries/Edit/5
         public async Task<IActionResult> Edit(decimal? id)
         {
-            if (id == null || _context.Galleries == null)
+            if (id == null || _context2.Galleries == null)
             {
                 return NotFound();
             }
 
-            var gallery = await _context.Galleries.FindAsync(id);
+            var gallery = await _context2.Galleries.FindAsync(id);
             if (gallery == null)
             {
                 return NotFound();
@@ -171,8 +171,8 @@ namespace ROYALHOTEL.Controllers
 
                 try
                 {
-                    _context.Update(gallery);
-                    await _context.SaveChangesAsync();
+                    _context2.Update(gallery);
+                    await _context2.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -193,12 +193,12 @@ namespace ROYALHOTEL.Controllers
         // GET: Galleries/Delete/5
         public async Task<IActionResult> Delete(decimal? id)
         {
-            if (id == null || _context.Galleries == null)
+            if (id == null || _context2.Galleries == null)
             {
                 return NotFound();
             }
 
-            var gallery = await _context.Galleries
+            var gallery = await _context2.Galleries
                 .FirstOrDefaultAsync(m => m.Galleryid == id);
             if (gallery == null)
             {
@@ -213,23 +213,23 @@ namespace ROYALHOTEL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(decimal id)
         {
-            if (_context.Galleries == null)
+            if (_context2.Galleries == null)
             {
                 return Problem("Entity set 'ModelContext.Galleries'  is null.");
             }
-            var gallery = await _context.Galleries.FindAsync(id);
+            var gallery = await _context2.Galleries.FindAsync(id);
             if (gallery != null)
             {
-                _context.Galleries.Remove(gallery);
+                _context2.Galleries.Remove(gallery);
             }
             
-            await _context.SaveChangesAsync();
+            await _context2.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GalleryExists(decimal id)
         {
-          return (_context.Galleries?.Any(e => e.Galleryid == id)).GetValueOrDefault();
+          return (_context2.Galleries?.Any(e => e.Galleryid == id)).GetValueOrDefault();
         }
     }
 }
