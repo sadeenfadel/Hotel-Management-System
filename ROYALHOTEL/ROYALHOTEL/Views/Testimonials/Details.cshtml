@@ -1,0 +1,30 @@
+﻿@model ROYALHOTEL.Models.Testimonial
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Testimonial</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imageurl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imageurl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Testimonialtext)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Testimonialtext)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Testimonialid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Testimonials";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">Testimonials</h2>
+            <ol class="breadcrumb">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="active">Gallery</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--================Breadcrumb Area =================-->
+<!--================ Testimonial Area  =================-->
+<section class="testimonial_area section_gap">
+    <div class="container">
+        <div class="section_title text-center">
+            <h2 class="title_color">Testimonial from our Clients</h2>
+            <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+        </div>
+        <div class="testimonial_slider owl-carousel">
+            @foreach (var testimonial in ViewBag.ApprovedTestimonials)
+            {
+                <div class="media testimonial_item">
+                    <img class="rounded-circle" src=@Url.Content("~/Images/"+@testimonial.Imagepath) alt="">
+                    <div class="media-body">
+                        <h4 class="sec_h4">
+                            @testimonial.User.Userfname
+                        </h4>
+                        <p>@testimonial.Testimonialtext</p>
+                        <h5 class="sec_h4">@testimonial.Hotel.Hotelname</h5>
+                        <div class="star">
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star-half-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!--================ Testimonial Area  =================-->
+

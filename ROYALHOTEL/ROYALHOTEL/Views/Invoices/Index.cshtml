@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ROYALHOTEL.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoicedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoicecontent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invoicedate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invoicecontent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservation.Reservationid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Userfname)
+            </td>
+            <td>
+                
+                <a asp-action="Details2" asp-route-id="@item.Invoiceid">Details</a> |
+               
+            </td>
+        </tr>
+       }
+    </tbody>
+</table>

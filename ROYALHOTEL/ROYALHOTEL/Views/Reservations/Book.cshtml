@@ -1,0 +1,30 @@
+﻿@model ROYALHOTEL.Models.Reservation
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h1>Create</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Book" method="post">
+            <div>
+                <label for="Checkindate">Check-in Date</label>
+                <input type="date" asp-for="Checkindate" class="form-control" />
+            </div>
+            <div>
+                <label for="Checkoutdate">Check-out Date</label>
+                <input type="date" asp-for="Checkoutdate" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

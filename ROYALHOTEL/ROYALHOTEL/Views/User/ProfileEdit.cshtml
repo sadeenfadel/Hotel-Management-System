@@ -1,0 +1,47 @@
+﻿@model ROYALHOTEL.Models.User
+
+@{
+    ViewData["Title"] = "Edit Profile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h4>Edit User Profile</h4>
+            <hr />
+            <form asp-controller="User" asp-action="ProfileEdit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Userid" />
+                <div class="form-group">
+                    <label asp-for="Userfname" class="control-label"></label>
+                    <input asp-for="Userfname" class="form-control" />
+                    <span asp-validation-for="Userfname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Userlname" class="control-label"></label>
+                    <input asp-for="Userlname" class="form-control" />
+                    <span asp-validation-for="Userlname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" type="file" class="form-control" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+            <div>
+                <a asp-action="ProfileView" asp-route-id="@Model.Userid" class="btn btn-secondary">Back to Profile</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model ROYALHOTEL.Models.Reporting
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<h1>Details</h1>
+
+<div>
+    <h4>Reporting</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Totalroomsbooked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Totalroomsbooked)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pricepernight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pricepernight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Totalexpenses)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Totalexpenses)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Revenue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Netprofit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Netprofit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Profitorloss)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Profitorloss)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Reportid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

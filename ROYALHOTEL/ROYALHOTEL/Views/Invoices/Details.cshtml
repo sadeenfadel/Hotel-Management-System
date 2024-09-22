@@ -1,0 +1,38 @@
+﻿@model ROYALHOTEL.Models.Invoice
+
+@{
+    ViewData["Title"] = "Invoice Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Invoice Details</h1>
+
+<h4>Invoice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Invoice ID</dt>
+            <dd>@Model.Invoiceid</dd>
+
+            <dt>Invoice Date</dt>
+            <dd>@Model.Invoicedate</dd>
+
+            <dt>Reservation ID</dt>
+            <dd>@Model.Reservationid</dd>
+
+            <dt>User Name</dt>
+            <dd>@Model.User.Userfname</dd> <!-- Assuming UserName is a property of User -->
+
+            <dt>Room Type</dt>
+            <dd>@Model.Reservation.Room.Roomtype</dd> <!-- Assuming Roomtype is a property of Room -->
+
+            <dt>Invoice Content</dt>
+            <dd>@Model.Invoicecontent</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MyInvoices">Back to List</a>
+</div>

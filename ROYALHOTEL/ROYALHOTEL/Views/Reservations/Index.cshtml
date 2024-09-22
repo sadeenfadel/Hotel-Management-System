@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ROYALHOTEL.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservationdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Checkindate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Checkoutdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservationdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Checkindate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Checkoutdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.Roomtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Userfname)
+            </td>
+            <td>
+
+                <a asp-action="Details" asp-route-id="@item.Reservationid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Reservationid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

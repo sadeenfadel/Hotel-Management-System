@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ROYALHOTEL.Models.Testimonials1>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagepath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Testimonialtext)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datecreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    <img src=@Url.Content("~/Images/" + item.Imagepath) asp-append-version="true" style="border-radius:20%;" width="100" height="100" />
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Testimonialtext)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datecreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.Hotelname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Userfname)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Testimonialid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Testimonialid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Testimonialid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
